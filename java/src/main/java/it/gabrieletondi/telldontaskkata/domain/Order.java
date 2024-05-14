@@ -1,15 +1,20 @@
 package it.gabrieletondi.telldontaskkata.domain;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-    private BigDecimal total;
-    private String currency;
-    private List<OrderItem> items;
-    private BigDecimal tax;
-    private OrderStatus status;
+    private BigDecimal total = new BigDecimal("0.00");
+    private String currency = "EUR";
+    private List<OrderItem> items = new ArrayList<>();
+    private BigDecimal tax = new BigDecimal("0.00");
+    private OrderStatus status = OrderStatus.CREATED;
     private int id;
+
+    public void addOrderItem(OrderItem orderItem) {
+        items.add(orderItem);
+    }
 
     public BigDecimal getTotal() {
         return total;
